@@ -24,6 +24,12 @@
 .foto{
 	height: 100px;
 }
+#konami{
+	display: none;
+	position: absolute;
+	top:400px;
+	left:50%;	
+}
 
 h1{
 	font-size: 36px;
@@ -32,7 +38,8 @@ h1{
 }
 img {
 	width: 130px;
-
+	position: absolute;
+	z-index: 1;
 }
 #groen {color: #088A08;}
 #cdv {color: #FF8000;}
@@ -127,15 +134,31 @@ img {
 		<span id='vlaamsbelang'></span>
 	</div>
 	</div>
+		
 </div>
+		<div id="konami"> 
+			<img src="https://i.imgflip.com/92dtj.gif" style= "width: 300px">
+		</div>
 
-<marquee id="banana" behavior=scroll direction=down scrollamount=1 scrolldelay=0 height=0 style='position:absolute; left:15px; top:105px; width:120; height:601px;'><img src="http://dl9.glitter-graphics.net/pub/677/677839p0yi9kuib0.gif" border=0></marquee>
+
+<marquee id="banana" direction=down scrolldelay=0 height=0 style='position:absolute; left:15px; top:105px; width:120; height:600px; z-index:1000'><img src="http://dl9.glitter-graphics.net/pub/677/677839p0yi9kuib0.gif" border=0></marquee>
 
 </body>
 
 <script src="http://code.jquery.com/jquery.js"></script>
 <script> 
 $(document).ready(function() {
+	var kkeys = [];
+var konami = "38,38,40,40,37,39,37,39,66,65";
+$(document).keydown(function(e) {
+    kkeys.push(e.keyCode);
+    if (kkeys.toString().indexOf(konami) >= 0)
+    {
+        kkeys = [];
+        $("#konami").fadeToggle(1000);
+        
+    }
+});
 	setInterval(function() {
       // Do something after 5 seconds
 	$.ajax({
