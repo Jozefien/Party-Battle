@@ -158,9 +158,10 @@ $(document).keydown(function(e) {
         $("#konami").fadeToggle(1000);
         
     }
+
 });
-	setInterval(function() {
-      // Do something after 5 seconds
+var roeptdenapiop=function() {
+     // Do something after 5 seconds
 	$.ajax({
   url: 'https://api.engagor.com/14083/insights/facets?access_token=5e301cf7cad5ed3aaadeda9823096bf2&date_from=2014-05-23T22%3A00%3A00%2B00%3A00&date_to=2014-05-24T21%3A59%3A59%2B00%3A00&facetdefinitions=%09%5B%7B%22key%22%3A%7B%22field%22%3A%22date.added%22%2C%22grouping%22%3A%22day%22%7D%2C%22value%22%3Anull%2C%22segmentation%22%3A%7B%22field%22%3A%22topic.id%22%7D%2C%22type%22%3A%22mentions%22%7D%5D&filter=%28postedby%3A%2252997544531%7CSearchProviderFacebook%22+OR+postedby%3A%2215753618%7CSearchProviderTwitter%22+OR+postedby%3A%22334361224413%7CSearchProviderFacebook%22+OR+postedby%3A%2224688336%7CSearchProviderTwitter%22+OR+postedby%3A%2253668151866%7CSearchProviderFacebook%22+OR+postedby%3A%2221994861%7CSearchProviderTwitter%22+OR+postedby%3A%22231023945795%7CSearchProviderFacebook%22+OR+postedby%3A%2266650114%7CSearchProviderTwitter%22+OR+postedby%3A%2254970503767%7CSearchProviderFacebook%22+OR+postedby%3A%2282068939%7CSearchProviderTwitter%22+OR+postedby%3A%2223423414%7CSearchProviderTwitter%22+OR+postedby%3A%2257253967150%7CSearchProviderFacebook%22+OR+postedby%3A%2268019359436%7CSearchProviderFacebook%22+OR+postedby%3A%2268019359436%7CSearchProviderFacebook%22+OR+postedby%3A%2268019359436%7CSearchProviderFacebook%22+OR+postedby%3A%22194623660577427%7CSearchProviderFacebook%22+OR+postedby%3A%2284920854319%7CSearchProviderFacebook%22+OR+postedby%3A%228200752%7CSearchProviderTwitter%22%29&profile_ids=&topic_ids=25545%2C25549%2C26756%2C25551%2C25552%2C26731%2C25555%2C25556%2C25557',
   dataType: "jsonp",
@@ -189,8 +190,13 @@ $(document).keydown(function(e) {
     	    	$('#banana').css("left",maxindex*190);
     }
   }
-});  
-}, 2000);
+}); 
+};
+roeptdenapiop();
+	setInterval(function() {
+  roeptdenapiop();
+
+}, 60000);
 });
 </script>
 </html>
